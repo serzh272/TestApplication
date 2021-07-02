@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav"
+    app:startDestination="@id/autorizationFragment">
+
+    <fragment
+        android:id="@+id/autorizationFragment"
+        android:name="ru.serzh272.testapplication.AutorizationFragment"
+        android:label="fragment_autorization"
+        tools:layout="@layout/fragment_autorization" >
+        <action
+            android:id="@+id/action_autorizationFragment_to_paymentsFragment"
+            app:destination="@id/paymentsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/paymentsFragment"
+        android:name="ru.serzh272.testapplication.PaymentsFragment"
+        android:label="fragment_payments"
+        tools:layout="@layout/fragment_payments" />
+</navigation>
