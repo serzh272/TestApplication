@@ -10,6 +10,7 @@ import ru.serzh272.testapplication.databinding.FragmentPaymentsBinding
 class PaymentsFragment : Fragment() {
     lateinit var binding: FragmentPaymentsBinding
     override fun onCreate(savedInstanceState: Bundle?) {
+        setHasOptionsMenu(true)
         super.onCreate(savedInstanceState)
     }
 
@@ -17,7 +18,9 @@ class PaymentsFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         binding = FragmentPaymentsBinding.inflate(inflater)
+        binding.rvPayments.adapter =
         return binding.root
     }
 }

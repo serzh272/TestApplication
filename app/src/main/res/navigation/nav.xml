@@ -7,9 +7,9 @@
 
     <fragment
         android:id="@+id/autorizationFragment"
-        android:name="ru.serzh272.testapplication.ui.fragments.AutorizationFragment"
+        android:name="ru.serzh272.testapplication.ui.fragments.AuthorizationFragment"
         android:label="fragment_autorization"
-        tools:layout="@layout/fragment_autorization" >
+        tools:layout="@layout/fragment_authorization" >
         <action
             android:id="@+id/action_autorizationFragment_to_paymentsFragment"
             app:destination="@id/paymentsFragment" />
@@ -18,5 +18,10 @@
         android:id="@+id/paymentsFragment"
         android:name="ru.serzh272.testapplication.ui.fragments.PaymentsFragment"
         android:label="fragment_payments"
-        tools:layout="@layout/fragment_payments" />
+        tools:layout="@layout/fragment_payments" >
+        <argument
+            android:name="token"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
 </navigation>

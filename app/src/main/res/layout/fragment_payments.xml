@@ -5,6 +5,9 @@
     android:layout_height="match_parent"
     tools:context=".ui.fragments.PaymentsFragment">
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_payments"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        tools:listitem="@layout/item_payment"
+        android:padding="4dp"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
