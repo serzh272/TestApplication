@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/autorizationFragment"
-        android:name="ru.serzh272.testapplication.AutorizationFragment"
+        android:name="ru.serzh272.testapplication.ui.fragments.AutorizationFragment"
         android:label="fragment_autorization"
         tools:layout="@layout/fragment_autorization" >
         <action
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/paymentsFragment"
-        android:name="ru.serzh272.testapplication.PaymentsFragment"
+        android:name="ru.serzh272.testapplication.ui.fragments.PaymentsFragment"
         android:label="fragment_payments"
         tools:layout="@layout/fragment_payments" />
 </navigation>
