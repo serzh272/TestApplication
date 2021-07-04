@@ -7,7 +7,7 @@
     <string name="date_created">01.01.1970</string>
     <string name="login">Login</string>
     <string name="login_button_text">Log in</string>
-    <string name="exit_message">Press back button twice for log out</string>
+    <string name="exit_message">Press back button again for exit</string>
     <string name="internet_connection_error">Internet connection unavailable</string>
     <string name="password_text">Password</string>
     <string name="logout_text">Logout</string>

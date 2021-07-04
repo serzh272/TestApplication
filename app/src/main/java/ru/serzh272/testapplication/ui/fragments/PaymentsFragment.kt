@@ -28,7 +28,7 @@ class PaymentsFragment : Fragment() {
         activity?.onBackPressedDispatcher?.addCallback(this, object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
                 if (backPressed + 2000 > System.currentTimeMillis()) {
-                    returnBack()
+                    activity?.finish()
                 } else {
                     Toast.makeText(context, R.string.exit_message, Toast.LENGTH_SHORT).show()
                 }
