@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/coordinator"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.fragments.AuthorizationFragment"
-    android:orientation="vertical"
     android:gravity="center_vertical"
     android:paddingStart="64dp"
     android:paddingEnd="64dp">
@@ -14,30 +14,42 @@
         android:id="@+id/ti_lt_login_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Login"
-        android:layout_marginBottom="24dp">
+        android:hint="@string/login"
+        android:layout_gravity="top"
+        app:layout_anchorGravity="top"
+        app:layout_insetEdge="top"
+        app:layout_anchor="@id/ti_lt_password_text">
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/te_login"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:imeOptions="actionDone"
+            android:inputType="text"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/ti_lt_password_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Password"
-        android:layout_marginBottom="24dp">
+        android:hint="@string/password_text"
+        android:layout_gravity="center">
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/te_password"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:imeOptions="actionDone"
+            android:inputType="textPassword"/>
     </com.google.android.material.textfield.TextInputLayout>
     <com.google.android.material.button.MaterialButton
         android:id="@+id/login_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:text="Login"/>
+        android:layout_gravity="bottom"
+        app:layout_anchor="@id/ti_lt_password_text"
+        app:layout_anchorGravity="bottom"
 
-</LinearLayout>
+        android:text="@string/login_button_text"/>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

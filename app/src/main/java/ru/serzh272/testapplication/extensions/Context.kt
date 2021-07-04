@@ -2,8 +2,12 @@ package ru.serzh272.testapplication.extensions
 
 import android.content.Context
 import android.net.ConnectivityManager
-import android.net.Network
 import android.util.TypedValue
+import androidx.datastore.core.DataStore
+import androidx.datastore.preferences.core.Preferences
+import androidx.datastore.preferences.preferencesDataStore
+
+val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "settings")
 
 fun Context.isNetworkAvailable():Boolean{
     val cm = this.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager

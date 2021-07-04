@@ -1,21 +1,13 @@
 package ru.serzh272.testapplication.data.remote
 
-import com.squareup.moshi.JsonAdapter
-import com.squareup.moshi.Moshi
-import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.converter.moshi.MoshiConverterFactory
 import ru.serzh272.testapplication.AppConfig
 
 object NetworkService {
     val api: RestService by lazy {
-        val moshi = Moshi.Builder()
-            .add(KotlinJsonAdapterFactory())
-            .build()
-
         val logging = HttpLoggingInterceptor().apply {
             level = HttpLoggingInterceptor.Level.BODY
         }
@@ -24,7 +16,6 @@ object NetworkService {
             .build()
         val retrofit = Retrofit.Builder()
             .client(client)
-            //.addConverterFactory(MoshiConverterFactory.create(moshi))
             .addConverterFactory(GsonConverterFactory.create())
             .baseUrl(AppConfig.BASE_URL)
             .build()

@@ -3,15 +3,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav"
-    app:startDestination="@id/autorizationFragment">
+    app:startDestination="@id/authorizationFragment">
 
     <fragment
-        android:id="@+id/autorizationFragment"
+        android:id="@+id/authorizationFragment"
         android:name="ru.serzh272.testapplication.ui.fragments.AuthorizationFragment"
-        android:label="fragment_autorization"
+        android:label="fragment_authorization"
         tools:layout="@layout/fragment_authorization" >
         <action
-            android:id="@+id/action_autorizationFragment_to_paymentsFragment"
+            android:id="@+id/action_authorizationFragment_to_paymentsFragment"
             app:destination="@id/paymentsFragment" />
     </fragment>
     <fragment
@@ -23,5 +23,8 @@
             android:name="token"
             app:argType="string"
             app:nullable="true" />
+        <action
+            android:id="@+id/action_paymentsFragment_to_authorizationFragment"
+            app:destination="@id/authorizationFragment" />
     </fragment>
 </navigation>

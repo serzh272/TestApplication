@@ -4,11 +4,8 @@ import android.content.Context
 import android.graphics.*
 import android.util.AttributeSet
 import android.view.View
-import androidx.core.graphics.createBitmap
 import ru.serzh272.testapplication.R
-import ru.serzh272.testapplication.extensions.dpToIntPx
 import ru.serzh272.testapplication.extensions.dpToPx
-import ru.serzh272.testapplication.extensions.pxToDp
 import kotlin.math.min
 
 class CircleImageView(
@@ -28,7 +25,7 @@ class CircleImageView(
 
     var bgColor: Int = 0
 
-    var initials: String? = "USDNF"
+    var initials: String? = "USD"
         set(value) {
             field = value
             invalidate()
@@ -75,7 +72,7 @@ class CircleImageView(
         )
         textPaint.color = Color.BLACK
         textPaint.textSize = (height - borderWidth*2) / 2.5f
-        val measureText = textPaint.measureText(initials)
+        val measureText = textPaint.measureText(initials) + context.dpToPx(8)
         if ( measureText > width - borderWidth*2){
             textPaint.textSize *= (width - borderWidth*2)/measureText
         }
@@ -87,8 +84,7 @@ class CircleImageView(
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec)
-        val minDim = Math.min(measuredHeight, measuredWidth)
-        //setMeasuredDimension(minDim, minDim)
-        setMeasuredDimension(context.dpToIntPx(72), context.dpToIntPx(72))
+        val minDim = measuredHeight.coerceAtMost(measuredWidth)
+        setMeasuredDimension(minDim, minDim)
     }
 }

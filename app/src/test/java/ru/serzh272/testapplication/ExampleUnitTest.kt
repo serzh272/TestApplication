@@ -1,8 +1,6 @@
 package ru.serzh272.testapplication
 
 import org.junit.Test
-
-import org.junit.Assert.*
 import java.util.*
 
 /**

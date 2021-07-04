@@ -1,6 +1,14 @@
 <resources>
     <string name="app_name">TestApplication</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="authorization_error">Incorrect login or password</string>
+    <string name="amount">000000000.00</string>
+    <string name="description">description</string>
+    <string name="curency">USD</string>
+    <string name="date_created">01.01.1970</string>
+    <string name="login">Login</string>
+    <string name="login_button_text">Log in</string>
+    <string name="exit_message">Press back button twice for log out</string>
+    <string name="internet_connection_error">Internet connection unavailable</string>
+    <string name="password_text">Password</string>
+    <string name="logout_text">Logout</string>
 </resources>

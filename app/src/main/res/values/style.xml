@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="CustomSnackbar" parent="Widget.MaterialComponents.Snackbar">
+        <item name="layout_insetEdge">bottom</item>
+    </style>
+</resources>

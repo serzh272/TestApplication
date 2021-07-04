@@ -1,7 +1,9 @@
 package ru.serzh272.testapplication.data.remote.res
 
 import com.squareup.moshi.Json
-
+/**
+ * Data Class for getting Error response
+ */
 data class LoginErrorResponse(
     @Json(name = "error_code")
     val error_code:String = "000",

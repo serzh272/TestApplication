@@ -12,7 +12,7 @@ interface RestService {
 
     @Headers("app-key:12345", "v:1")
     @GET("payments")
-    suspend fun payments(@Query("token") token:Int = 0):PaymentsResponse
+    suspend fun payments(@Query("token") token:String = ""):PaymentsResponse
 
 
 
