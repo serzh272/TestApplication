@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
+import androidx.annotation.VisibleForTesting
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
@@ -16,7 +17,8 @@ import ru.serzh272.testapplication.extensions.isNetworkAvailable
 import ru.serzh272.testapplication.repositories.MainRepository
 
 class AuthorizationFragment : Fragment() {
-    private lateinit var binding: FragmentAuthorizationBinding
+    @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
+    lateinit var binding: FragmentAuthorizationBinding
     private val repository = MainRepository
 
     override fun onCreateView(
@@ -74,5 +76,6 @@ class AuthorizationFragment : Fragment() {
             }
 
         }
+
     }
 }

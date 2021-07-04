@@ -3,4 +3,5 @@
     <style name="CustomSnackbar" parent="Widget.MaterialComponents.Snackbar">
         <item name="layout_insetEdge">bottom</item>
     </style>
+    <style name="TestTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar"/>
 </resources>

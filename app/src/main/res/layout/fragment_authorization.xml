@@ -8,7 +8,8 @@
     tools:context=".ui.fragments.AuthorizationFragment"
     android:gravity="center_vertical"
     android:paddingStart="64dp"
-    android:paddingEnd="64dp">
+    android:paddingEnd="64dp"
+    android:theme="@style/Theme.TestApplication">
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/ti_lt_login_text"
