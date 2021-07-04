@@ -11,9 +11,11 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.snackbar.Snackbar
 import ru.serzh272.testapplication.R
 import ru.serzh272.testapplication.data.managers.AppSettings
 import ru.serzh272.testapplication.databinding.FragmentPaymentsBinding
+import ru.serzh272.testapplication.extensions.isNetworkAvailable
 import ru.serzh272.testapplication.repositories.MainRepository
 import ru.serzh272.testapplication.ui.adapters.PaymentsAdapter
 
@@ -52,14 +54,22 @@ class PaymentsFragment : Fragment() {
             rvPayments.layoutManager = LinearLayoutManager(requireContext())
             rvPayments.addItemDecoration(divider)
         }
-        MainRepository.getPayments(
-            MainRepository.getAppSettings().value?.token ?: args.token ?: ""
-        ) {
-            activity?.runOnUiThread {
-                paymentsAdapter.updateData(it)
+        if (activity?.isNetworkAvailable() == true) {
+            MainRepository.getPayments(
+                MainRepository.getAppSettings().value?.token ?: args.token ?: ""
+            ) {
+                activity?.runOnUiThread {
+                    paymentsAdapter.updateData(it)
+                }
             }
+        }else{
+            Toast.makeText(
+                requireContext(),
+                requireContext().getString(R.string.internet_connection_error),
+                Toast.LENGTH_LONG
+            )
+                .show()
         }
-
         return binding.root
     }
 
