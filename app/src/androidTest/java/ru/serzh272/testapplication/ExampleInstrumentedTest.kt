@@ -1,5 +1,6 @@
 package ru.serzh272.testapplication
 
+import android.view.WindowManager
 import androidx.annotation.StringRes
 import androidx.fragment.app.testing.launchFragmentInContainer
 import androidx.navigation.NavController
@@ -16,6 +17,9 @@ import org.hamcrest.Matchers.allOf
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.Mockito.mock
+import org.junit.Assert.*
+import ru.serzh272.testapplication.data.managers.AppSettings
+import ru.serzh272.testapplication.repositories.MainRepository
 import ru.serzh272.testapplication.ui.fragments.AuthorizationFragment
 
 /**
@@ -30,8 +34,13 @@ class ExampleInstrumentedTest {
     fun invalidLoginTest(){
         val mockNavController = mock(NavController::class.java)
         val fragmentScenario = launchFragmentInContainer<AuthorizationFragment>()
+        var repo = MainRepository
         fragmentScenario.onFragment{
             Navigation.setViewNavController(it.requireView(), mockNavController)
+            it.activity?.window?.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE)
+            repo = repo.also { repository ->
+                repository.setAppSettings(AppSettings(""))
+            }
         }
         onView(withId(R.id.te_login))
             .perform(typeText("demo"))
@@ -39,8 +48,7 @@ class ExampleInstrumentedTest {
             .perform(typeText("1234"))
         onView(withId(R.id.login_button))
             .perform(click())
-        onSnackbar(withText = R.string.authorization_error)
-            .check(matches(isDisplayed()))
+        assertNull(repo.getAppSettings().value?.token)
     }
 
     fun onSnackbar(@StringRes withText: Int): ViewInteraction {

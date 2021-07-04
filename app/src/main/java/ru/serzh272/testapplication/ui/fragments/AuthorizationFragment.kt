@@ -19,7 +19,8 @@ import ru.serzh272.testapplication.repositories.MainRepository
 class AuthorizationFragment : Fragment() {
     @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
     lateinit var binding: FragmentAuthorizationBinding
-    private val repository = MainRepository
+    @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
+    val repository = MainRepository
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
