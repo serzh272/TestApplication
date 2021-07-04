@@ -11,4 +11,6 @@
     <string name="internet_connection_error">Internet connection unavailable</string>
     <string name="password_text">Password</string>
     <string name="logout_text">Logout</string>
+    <string name="empty_login_error">Enter login</string>
+    <string name="empty_password_error">Enter password</string>
 </resources>

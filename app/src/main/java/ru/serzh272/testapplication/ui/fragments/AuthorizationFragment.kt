@@ -47,6 +47,18 @@ class AuthorizationFragment : Fragment() {
     private fun prepareViews() {
         binding.loginButton.setOnClickListener {
             if (activity?.isNetworkAvailable() == true){
+                if (binding.teLogin.text.isNullOrEmpty()){
+                    binding.tiLtLoginText.error = requireContext().getString(R.string.empty_login_error)
+                    return@setOnClickListener
+                }else{
+                    binding.tiLtLoginText.error = null
+                }
+                if (binding.tePassword.text.isNullOrEmpty()){
+                    binding.tiLtPasswordText.error = requireContext().getString(R.string.empty_password_error)
+                    return@setOnClickListener
+                }else{
+                    binding.tiLtPasswordText.error = null
+                }
                 repository.getToken(
                     UserLoginRequest(
                         binding.teLogin.text.toString(),
